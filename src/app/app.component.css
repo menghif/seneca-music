@@ -1,0 +1,13 @@
+body {
+  font-size: 25px;
+}
+
+.navbar-brand {
+  color: inherit;
+  display: flex;
+}
+
+.navbar-brand img {
+  padding: 0 10px;
+  max-height: 32px;
+}

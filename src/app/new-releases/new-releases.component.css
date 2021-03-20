@@ -1,0 +1,5 @@
+@media only screen and (min-width: 650px) {
+  .albums .mat-card {
+    max-width: 500px;
+  }
+}

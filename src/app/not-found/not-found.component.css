@@ -1,0 +1,13 @@
+.not-found {
+  display: flex;
+}
+
+p {
+  margin-bottom: 0;
+  margin-top: 3px;
+}
+
+mat-icon {
+  /* font-size: 2em; */
+  padding-right: 10px;
+}
