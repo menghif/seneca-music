@@ -36,7 +36,7 @@
                 *ngFor="let artist of album.artists"
                 title="{{ artist.name[0] }}"
               >
-                <mat-chip [routerLink]="['/artist', artist.id]">
+                <mat-chip title="" [routerLink]="['/artist', artist.id]">
                   {{ artist.name }}
                 </mat-chip>
               </div>

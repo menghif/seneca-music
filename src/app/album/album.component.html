@@ -8,10 +8,15 @@
   <br />
   <mat-card>
     <mat-card-content fxLayout="row wrap" fxLayout.xs="column">
-      <div [style.margin]="'10px'">
-        <img src="{{ album.images[1].url }}" alt="album cover" />
+      <div fxflex>
+        <img
+          src="{{ album.images[1].url }}"
+          alt="album cover"
+          [style.margin]="'10px'"
+          [style.max-width]="'90%'"
+        />
       </div>
-      <div [style.margin]="'10px'">
+      <div fxFlex>
         <div [style.min-width]="'300px'" [style.margin]="'10px'">
           <strong>Record Label: </strong>{{ album.label }}<br />
           <strong>Release Date: </strong>
@@ -24,7 +29,7 @@
               *ngFor="let artist of album.artists"
               title="{{ artist.name[0] }}"
             >
-              <mat-chip [routerLink]="['/artist', artist.id]">{{
+              <mat-chip title="" [routerLink]="['/artist', artist.id]">{{
                 artist.name
               }}</mat-chip>
             </div>

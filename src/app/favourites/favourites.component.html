@@ -15,33 +15,31 @@
       </mat-icon>
       <div mat-line>
         <mat-card>
-          <mat-card-content fxLayout="row wrap">
-            <div [style.margin]="'0 10px 0 0'">
-              <img
-                src="{{ track.album.images[2].url }}"
-                alt="album cover"
-                [style.margin]="'10px'"
-                [style.max-width]="'90%'"
-              />
-            </div>
-            <div>
-              <strong>{{ track.name }}</strong> -
-              {{ (track.duration_ms / 60000).toFixed(2) }}<br /><br />
-              Artist(s):
-              <span
-                *ngFor="let artist of track.artists"
-                title="{{ artist.name }}"
-                ><a [routerLink]="['/artist', artist.id]"> {{ artist.name }}</a
-                >&nbsp;&nbsp;
-              </span>
-              <br />
-              Album:
-              <a [routerLink]="['/album', track.album.id]">
-                {{ track.album.name }}</a
-              ><br />
-              <div *ngIf="track.preview_url">
-                <br /><audio controls [src]="track.preview_url"></audio>
+          <mat-card-content fxLayout="column">
+            <div fxLayout="row">
+              <div [style.margin]="'0 20px 0 0'">
+                <img src="{{ track.album.images[2].url }}" alt="album cover" />
               </div>
+              <div>
+                <strong>{{ track.name }}</strong> -
+                {{ (track.duration_ms / 60000).toFixed(2) }}<br />
+                Artist(s):
+                <span
+                  *ngFor="let artist of track.artists"
+                  title="{{ artist.name }}"
+                  ><a [routerLink]="['/artist', artist.id]">
+                    {{ artist.name }}</a
+                  >&nbsp;&nbsp;
+                </span>
+                <br />
+                Album:
+                <a [routerLink]="['/album', track.album.id]">
+                  {{ track.album.name }}</a
+                ><br />
+              </div>
+            </div>
+            <div *ngIf="track.preview_url">
+              <br /><audio controls [src]="track.preview_url"></audio>
             </div>
           </mat-card-content>
         </mat-card>
