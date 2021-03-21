@@ -2,8 +2,8 @@
   <h1>{{ album.name }}</h1>
   <p>
     Full track listing for {{ album.name }} <br />
-    Click the &nbsp;<mat-icon mat-list-icon>queue_music</mat-icon>&nbsp; icon to
-    <b>add</b> a song to your favourites list
+    Click the &nbsp;<mat-icon mat-list-icon>favorite_border</mat-icon>&nbsp;
+    icon to <b>add</b> a song to your favourites list
   </p>
   <br />
   <mat-card>
@@ -49,9 +49,18 @@
   <mat-list>
     <div *ngFor="let track of album.tracks.items" title="tracks">
       <mat-list-item>
-        <mat-icon mat-list-icon (click)="addToFavourites(track.id)"
-          >queue_music</mat-icon
-        >
+        <mat-icon
+          mat-list-icon
+          *ngIf="!isFavourite(track.id)"
+          (click)="addToFavourites(track.id)"
+          >favorite_border
+        </mat-icon>
+        <mat-icon
+          mat-list-icon
+          *ngIf="isFavourite(track.id)"
+          (click)="removeFromFavourites(track.id)"
+          >favorite
+        </mat-icon>
         <div mat-line>
           <mat-card>
             <mat-card-content

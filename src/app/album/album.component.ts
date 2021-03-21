@@ -20,7 +20,6 @@ export class AlbumComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.album = (data as any).default;
     this.paramSubscription = this.route.params.subscribe((params: Params) =>
       this.musicData
         .getAlbumById(params.id)
@@ -30,9 +29,21 @@ export class AlbumComponent implements OnInit {
 
   addToFavourites(trackID: string) {
     this.musicData.addToFavourites(trackID)
-      ? this.snackBar.open('Adding to Favourites...', 'Done', {
+      ? this.snackBar.open('Added to Favourites', 'Done', {
           duration: 1500,
         })
       : null;
+  }
+
+  removeFromFavourites(trackID: string) {
+    this.musicData.removeFromFavourites(trackID)
+      ? this.snackBar.open('Removed from Favourites', 'Done', {
+          duration: 1500,
+        })
+      : null;
+  }
+
+  isFavourite(trackID: string): Boolean {
+    return this.musicData.favouritesList.find((el) => el === trackID);
   }
 }
