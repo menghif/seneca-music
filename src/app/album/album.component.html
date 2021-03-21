@@ -8,15 +8,10 @@
   <br />
   <mat-card>
     <mat-card-content fxLayout="row wrap" fxLayout.xs="column">
-      <div fxflex>
-        <img
-          src="{{ album.images[1].url }}"
-          alt="album cover"
-          [style.margin]="'10px'"
-          [style.max-width]="'90%'"
-        />
+      <div [style.margin]="'10px'">
+        <img src="{{ album.images[1].url }}" alt="album cover" />
       </div>
-      <div fxFlex>
+      <div [style.margin]="'10px'">
         <div [style.min-width]="'300px'" [style.margin]="'10px'">
           <strong>Record Label: </strong>{{ album.label }}<br />
           <strong>Release Date: </strong>
