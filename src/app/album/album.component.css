@@ -1,3 +1,20 @@
-.mat-list-item .mat-icon:hover {
+.heart:hover {
   cursor: pointer;
+}
+
+.mat-card {
+  margin: 6px 0;
+}
+
+.explicit-icon {
+  margin-left: 6px;
+  font-size: 22px;
+}
+.explicit-icon:hover {
+  cursor: default;
+}
+
+.mat-icon {
+  display: inline-flex;
+  vertical-align: bottom;
 }

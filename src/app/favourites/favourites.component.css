@@ -1,4 +1,4 @@
-.mat-list-item .mat-icon:hover {
+.remove-button:hover {
   cursor: pointer;
 }
 
@@ -8,4 +8,25 @@ a {
 
 #remove-all {
   margin: auto;
+}
+
+img {
+  border-radius: 0.3em;
+}
+
+.mat-card {
+  margin: 6px 0;
+}
+
+.explicit-icon {
+  margin-left: 6px;
+  font-size: 20px;
+}
+.explicit-icon:hover {
+  cursor: default;
+}
+
+.mat-icon {
+  display: inline-flex;
+  vertical-align: bottom;
 }

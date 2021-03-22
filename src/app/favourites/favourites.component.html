@@ -6,6 +6,7 @@
     <mat-list-item>
       <mat-icon
         mat-list-icon
+        class="remove-button"
         title="Remove from Favourites"
         (click)="removeFromFavourites(track.id)"
         >highlight_off
@@ -19,7 +20,16 @@
               </div>
               <div>
                 <strong>{{ track.name }}</strong> -
-                {{ (track.duration_ms / 60000).toFixed(2) }}<br />
+                {{ (track.duration_ms / 60000).toFixed(2) }}
+                <mat-icon
+                  inline="true"
+                  title="Explicit Content"
+                  class="explicit-icon"
+                  *ngIf="track.explicit"
+                >
+                  explicit
+                </mat-icon>
+                <br />
                 Artist(s):
                 <span
                   *ngFor="let artist of track.artists"
