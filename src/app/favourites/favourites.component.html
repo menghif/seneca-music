@@ -1,11 +1,5 @@
 <h1>Favourites</h1>
-<p>
-  The following is a list of your favourite songs from various artists.<br />
-  Click the &nbsp;<mat-icon mat-list-icon>highlight_off</mat-icon>&nbsp; icon to
-  <strong>remove</strong> a song from your list
-</p>
-
-<br />
+<p>The following is a list of your favourite songs from various artists.</p>
 
 <mat-list>
   <div *ngFor="let track of favourites">
@@ -45,5 +39,11 @@
         </mat-card>
       </div>
     </mat-list-item>
+  </div>
+  <br />
+  <div *ngIf="favourites">
+    <mat-chip-list>
+      <mat-chip id="remove-all" (click)="removeAll()"> REMOVE ALL </mat-chip>
+    </mat-chip-list>
   </div>
 </mat-list>

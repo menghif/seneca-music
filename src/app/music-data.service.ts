@@ -74,23 +74,34 @@ export class MusicDataService {
   }
 
   addToFavourites(id: string): Boolean {
-    if (
-      this.favouritesList.length < 50 &&
-      id &&
-      !this.favouritesList.find((el) => el === id) // avoid duplicates
-    ) {
-      this.favouritesList.push(id);
-      return true;
+    if (this.favouritesList.length > 50 && !id) {
+      return false;
     }
-    return false;
+    this.favouritesList.push(id);
+    // save in local storage to avoid resetting the list when the page is refreshed or closed
+    localStorage.setItem('favouritesList', JSON.stringify(this.favouritesList));
+    return true;
   }
 
   removeFromFavourites(id: string): Observable<any> {
     this.favouritesList.splice(this.favouritesList.indexOf(id), 1);
+    // save new favouritesList in local storage
+    localStorage.setItem('favouritesList', JSON.stringify(this.favouritesList));
     return this.getFavourites();
   }
 
+  removeAllFavourites(): Boolean {
+    this.favouritesList = [];
+    // clear local storage
+    localStorage.clear();
+    return true;
+  }
+
   getFavourites(): Observable<any> {
+    // get favouriteList from local storage if not empty
+    if (JSON.parse(localStorage.getItem('favouritesList'))) {
+      this.favouritesList = JSON.parse(localStorage.getItem('favouritesList'));
+    }
     if (this.favouritesList.length > 0) {
       return this.spotifyToken.getBearerToken().pipe(
         mergeMap((token) => {
