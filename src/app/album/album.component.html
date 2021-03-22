@@ -1,10 +1,6 @@
 <div *ngIf="album" title="{{ album.name }}">
-  <h1>{{ album.name }}</h1>
-  <p>
-    Full track listing for {{ album.name }} <br />
-    Click the &nbsp;<mat-icon mat-list-icon>favorite_border</mat-icon>&nbsp;
-    icon to <b>add</b> a song to your favourites list
-  </p>
+  <h1 class="title">{{ album.name }}</h1>
+  <p>Full track listing for {{ album.name }} <br /></p>
   <br />
   <mat-card>
     <mat-card-content fxLayout="row wrap" fxLayout.xs="column">
@@ -45,7 +41,9 @@
   </mat-card>
   <br /><br />
   <h2>Track Listing</h2>
-
+  <p>
+    Click the <b>heart</b> icon to <b>add</b> a song to your favourites list
+  </p>
   <mat-list>
     <div *ngFor="let track of album.tracks.items" title="tracks">
       <mat-list-item>
