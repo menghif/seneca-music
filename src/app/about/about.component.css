@@ -14,15 +14,10 @@ a {
   text-decoration: none;
 }
 
-a:link {
-  color: initial;
-}
-
-a:active {
-  color: initial;
-}
+a:link,
+a:active,
 a:hover {
-  color: initial;
+  color: inherit;
 }
 
 .location {

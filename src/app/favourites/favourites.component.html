@@ -4,7 +4,10 @@
 <mat-list>
   <div *ngFor="let track of favourites">
     <mat-list-item>
-      <mat-icon mat-list-icon (click)="removeFromFavourites(track.id)"
+      <mat-icon
+        mat-list-icon
+        title="Remove from Favourites"
+        (click)="removeFromFavourites(track.id)"
         >highlight_off
       </mat-icon>
       <div mat-line>

@@ -51,18 +51,20 @@
       <mat-list-item>
         <mat-icon
           mat-list-icon
+          title="Add to Favourites"
           *ngIf="!isFavourite(track.id)"
           (click)="addToFavourites(track.id)"
           >favorite_border
         </mat-icon>
         <mat-icon
           mat-list-icon
+          title="Remove from Favourites"
           *ngIf="isFavourite(track.id)"
           (click)="removeFromFavourites(track.id)"
           >favorite
         </mat-icon>
         <div mat-line>
-          <mat-card>
+          <mat-card title="">
             <mat-card-content
               >{{ track.track_number }}: {{ track.name }} -
               {{ (track.duration_ms / 60000).toFixed(2) }}
