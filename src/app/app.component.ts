@@ -7,7 +7,7 @@
  *
  ********************************************************************************/
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,12 +15,20 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   isLightTheme: boolean = false;
   title = 'web422-a5';
   searchString: string;
 
   constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    if (localStorage.getItem('theme')) {
+      localStorage.getItem('theme') === 'light'
+        ? (this.isLightTheme = true)
+        : (this.isLightTheme = false);
+    }
+  }
 
   handleSearch(): void {
     this.router.navigate(['/search'], {
@@ -31,7 +39,7 @@ export class AppComponent {
 
   changeTheme(): void {
     this.isLightTheme
-      ? (this.isLightTheme = false)
-      : (this.isLightTheme = true);
+      ? ((this.isLightTheme = false), localStorage.setItem('theme', 'dark'))
+      : ((this.isLightTheme = true), localStorage.setItem('theme', 'light'));
   }
 }
