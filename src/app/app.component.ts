@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  isLightTheme: boolean = false;
   title = 'web422-a5';
   searchString: string;
 
@@ -26,5 +27,11 @@ export class AppComponent {
       queryParams: { q: this.searchString },
     });
     this.searchString = '';
+  }
+
+  changeTheme(): void {
+    this.isLightTheme
+      ? (this.isLightTheme = false)
+      : (this.isLightTheme = true);
   }
 }

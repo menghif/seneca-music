@@ -117,3 +117,9 @@ html .title {
   font-size: 2.5em;
   line-height: 1;
 }
+
+.change-theme {
+  min-width: unset !important;
+  padding: 0 8px !important;
+  cursor: pointer;
+}

@@ -1,6 +1,6 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@import "~@angular/material/theming";
+@import "~@angular/material/theming/";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -8,28 +8,30 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$web422-a4-primary: mat-palette($mat-amber);
-$web422-a4-accent: mat-palette($mat-blue-grey);
-
-// The warn palette is optional (defaults to red).
-$web422-a4-warn: mat-palette($mat-red);
-
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$web422-a4-theme: mat-dark-theme(
+
+$app-primary: mat-palette($mat-amber);
+$app-accent: mat-palette($mat-blue-grey);
+
+$app-dark-theme: mat-dark-theme(
   (
     color: (
-      primary: $web422-a4-primary,
-      accent: $web422-a4-accent,
-      warn: $web422-a4-warn,
+      primary: $app-primary,
+      accent: $app-accent,
     ),
   )
 );
+@include angular-material-theme($app-dark-theme);
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($web422-a4-theme);
+.light-theme {
+  $app-light-theme: mat-light-theme(
+    (
+      color: (
+        primary: $app-primary,
+        accent: $app-accent,
+      ),
+    )
+  );
+  @include angular-material-theme($app-light-theme);
+}

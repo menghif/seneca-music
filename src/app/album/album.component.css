@@ -1,4 +1,4 @@
-.heart:hover {
+.heart {
   cursor: pointer;
 }
 
@@ -9,8 +9,6 @@
 .explicit-icon {
   margin-left: 6px;
   font-size: 22px;
-}
-.explicit-icon:hover {
   cursor: default;
 }
 
