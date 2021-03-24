@@ -7,3 +7,11 @@
 mat-card-title:hover {
   cursor: pointer;
 }
+
+mat-card {
+  transition: 0.15s;
+}
+
+mat-card:hover {
+  transform: scale(1.03);
+}

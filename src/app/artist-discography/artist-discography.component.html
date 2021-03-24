@@ -28,7 +28,7 @@
     fxFlex.xl="25%"
     *ngFor="let album of albums"
   >
-    <div [style.margin]="'20px'">
+    <div [style.margin]="'20px'" class="album-info">
       <mat-card [style.min-width]="'200px'">
         <mat-card-header>
           <mat-card-title [routerLink]="['/album', album.id]">{{

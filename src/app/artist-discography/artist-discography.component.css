@@ -7,3 +7,11 @@
 .mat-card-title:hover {
   cursor: pointer;
 }
+
+.album-info mat-card {
+  transition: 0.15s;
+}
+
+.album-info mat-card:hover {
+  transform: scale(1.03);
+}
