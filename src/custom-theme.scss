@@ -22,16 +22,18 @@ $app-dark-theme: mat-dark-theme(
     ),
   )
 );
+
+$app-light-theme: mat-light-theme(
+  (
+    color: (
+      primary: $app-primary,
+      accent: $app-accent,
+    ),
+  )
+);
+
 @include angular-material-theme($app-dark-theme);
 
 .light-theme {
-  $app-light-theme: mat-light-theme(
-    (
-      color: (
-        primary: $app-primary,
-        accent: $app-accent,
-      ),
-    )
-  );
-  @include angular-material-theme($app-light-theme);
+  @include angular-material-color($app-light-theme);
 }
