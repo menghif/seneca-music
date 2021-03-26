@@ -1,7 +1,8 @@
 /*********************************************************************************
  * WEB422 – Assignment 05
- * I declare that this assignment is my own work in accordance with Seneca Academic Policy. No part of this * assignment has been copied manually or electronically from any other source (including web sites) or
- * distributed to other students.
+ * I declare that this assignment is my own work in accordance with Seneca Academic Policy.
+ * No part of this * assignment has been copied manually or electronically from any other
+ * source (including web sites) or distributed to other students.
  *
  * Name: Francesco Menghi Student ID: 141758193 Date: March 21st, 2021
  *
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem('theme')) {
+      // get theme value from local storage
       localStorage.getItem('theme') === 'light'
         ? (this.isLightTheme = true)
         : (this.isLightTheme = false);
@@ -38,6 +40,7 @@ export class AppComponent implements OnInit {
   }
 
   changeTheme(): void {
+    // change theme and save new theme value to local storage
     this.isLightTheme
       ? ((this.isLightTheme = false), localStorage.setItem('theme', 'dark'))
       : ((this.isLightTheme = true), localStorage.setItem('theme', 'light'));
