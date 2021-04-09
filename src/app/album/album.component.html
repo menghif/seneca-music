@@ -17,7 +17,7 @@
           <strong>Record Label: </strong>{{ album.label }}<br />
           <strong>Release Date: </strong>
           {{ album.release_date | date: "M/d/yy" }}<br /><br />
-          <strong>Tracks:</strong> {{ album.tracks.total }}<br />
+          <strong>Tracks: </strong> {{ album.tracks.total }}<br />
           <strong>Popularity: </strong>{{ album.popularity }}<br /><br />
 
           <mat-chip-list aria-label="Artist selection">
@@ -42,7 +42,7 @@
   <br /><br />
   <h2>Track Listing</h2>
   <p>
-    Click the <b>heart</b> icon to <b>add</b> a song to your favourites list
+    Click the <b>heart</b> icon to <b>add</b> a song to your favourites list.
   </p>
   <mat-list>
     <div *ngFor="let track of album.tracks.items" title="tracks">
@@ -77,8 +77,14 @@
                 explicit
               </mat-icon>
               <br />
-              <div *ngIf="track.preview_url">
-                <br /><audio controls [src]="track.preview_url"></audio>
+              <div *ngFor="let preview of trackPreviews">
+                <div *ngIf="track.preview_url && track.preview_url === preview">
+                  <br /><audio
+                    controls
+                    [src]="preview"
+                    (error)="handlePreviewError()"
+                  ></audio>
+                </div>
               </div>
             </mat-card-content>
           </mat-card>

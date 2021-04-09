@@ -1,0 +1,63 @@
+<img
+  class="background"
+  alt="background-image"
+  src="../../assets/annie-spratt-4Hpljf9Y1ko-unsplash.jpg"
+/>
+<!-- Photo by Annie Spratt from https://unsplash.com/photos/4Hpljf9Y1ko -->
+
+<mat-card>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()">
+      <h2>Log In</h2>
+      <mat-error *ngIf="warning"> {{ warning }}</mat-error
+      ><br />
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="User Name"
+          name="username"
+          [(ngModel)]="user.userName"
+          required
+          autofocus
+        />
+        <mat-error>Please provide a valid user name</mat-error> </mat-form-field
+      ><br />
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          type="password"
+          placeholder="Password"
+          name="password"
+          password="password"
+          [(ngModel)]="user.password"
+          required
+        />
+        <mat-error>Please provide a valid password</mat-error>
+      </mat-form-field>
+      <br />
+      <div class="spinner">
+        <mat-spinner *ngIf="loading" diameter="35"></mat-spinner>
+      </div>
+      <br />
+      <button *ngIf="!loading" mat-raised-button color="accent" type="submit">
+        <mat-icon>login</mat-icon>
+        <span>&nbsp;&nbsp;&nbsp;Login</span>
+      </button>
+      <button
+        *ngIf="loading"
+        mat-raised-button
+        color="secondary"
+        type="submit"
+        disable
+      >
+        <mat-icon>login</mat-icon>
+        <span>&nbsp;&nbsp;&nbsp;Processing Request</span>
+      </button>
+      &nbsp;&nbsp;
+      <button [routerLink]="['/register']" mat-raised-button color="primary">
+        <mat-icon>account_box</mat-icon>
+        <span>&nbsp;&nbsp;&nbsp;Register</span>
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

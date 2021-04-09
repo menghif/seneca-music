@@ -1,0 +1,31 @@
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: blur(3px);
+  transform: scale(1.05);
+}
+
+.bottom-spacer {
+  height: 0;
+}
+
+mat-card {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+  padding: 40px;
+}
+
+mat-form-field {
+  display: block;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+}

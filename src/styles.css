@@ -92,7 +92,8 @@ mat-sidenav {
 }
 
 .mat-drawer-content {
-  height: auto !important;
+  /* height: auto !important; */
+  height: 100%;
 }
 
 .mat-list-base .mat-list-item .mat-line {

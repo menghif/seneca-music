@@ -1,0 +1,76 @@
+<img
+  class="background"
+  alt="background-image"
+  src="../../assets/annie-spratt-4Hpljf9Y1ko-unsplash.jpg"
+/>
+<!-- Photo by Annie Spratt from https://unsplash.com/photos/4Hpljf9Y1ko -->
+
+<mat-card>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()">
+      <h2>Register</h2>
+      <mat-error *ngIf="warning"> {{ warning }}</mat-error
+      ><br />
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="User Name"
+          name="username"
+          [(ngModel)]="registerUser.userName"
+          required
+          autofocus
+        />
+        <mat-error
+          >Please provide a valid email address</mat-error
+        > </mat-form-field
+      ><br />
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          type="password"
+          placeholder="Password"
+          name="password"
+          [(ngModel)]="registerUser.password"
+          required
+        />
+        <mat-error>Please provide a valid password</mat-error> </mat-form-field
+      ><br />
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          type="password"
+          placeholder="Password"
+          name="password2"
+          [(ngModel)]="registerUser.password2"
+          required
+        />
+        <mat-error>Please provide a valid password</mat-error>
+      </mat-form-field>
+      <br />
+      <div class="spinner">
+        <mat-spinner *ngIf="loading" diameter="35"></mat-spinner>
+      </div>
+      <br />
+      <button *ngIf="!loading" mat-raised-button color="primary" type="submit">
+        <mat-icon>account_box</mat-icon>
+        <span>&nbsp;&nbsp;&nbsp;Register</span>
+      </button>
+      <button
+        *ngIf="loading"
+        mat-raised-button
+        color="secondary"
+        type="submit"
+        disabled
+      >
+        <mat-icon>account_box</mat-icon>
+        <span>&nbsp;&nbsp;&nbsp;Processing Request</span>
+      </button>
+    </form>
+  </mat-card-content>
+  <div *ngIf="success" class="success">
+    Registration Successful. Proceed to<br /><br />
+    <a mat-raised-button color="accent" [routerLink]="['/login']">
+      <mat-icon>login</mat-icon>&nbsp;&nbsp;&nbsp;Login
+    </a>
+  </div>
+</mat-card>

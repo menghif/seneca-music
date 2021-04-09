@@ -30,13 +30,4 @@ export class FavouritesComponent implements OnInit {
         })
       : null;
   }
-
-  removeAll(): void {
-    this.favourites = [];
-    this.musicData.removeAllFavourites()
-      ? this.snackBar.open('Removed ALL Favourites', 'Done', {
-          duration: 1500,
-        })
-      : null;
-  }
 }

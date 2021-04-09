@@ -42,7 +42,7 @@ function createToken(user) {
 }
 
 /* TODO Add Your Routes Here */
-app.post("/api/register", (req, res) => {
+app.post("/api/users/register", (req, res) => {
   userService
     .registerUser(req.body)
     .then((msg) => {
@@ -53,7 +53,7 @@ app.post("/api/register", (req, res) => {
     });
 });
 
-app.post("/api/login", (req, res) => {
+app.post("/api/users/login", (req, res) => {
   userService
     .checkUser(req.body)
     .then((user) => {
@@ -65,7 +65,7 @@ app.post("/api/login", (req, res) => {
 });
 
 app.get(
-  "/api/user/favourites",
+  "/api/users/favourites",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     userService
@@ -80,7 +80,7 @@ app.get(
 );
 
 app.post(
-  "/api/user/favourites/:id",
+  "/api/users/favourites/:id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     userService
@@ -95,7 +95,7 @@ app.post(
 );
 
 app.delete(
-  "/api/user/favourites/:id",
+  "/api/users/favourites/:id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     userService
