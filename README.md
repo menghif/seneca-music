@@ -1,4 +1,6 @@
 # Seneca Music
+![Screen Shot](https://user-images.githubusercontent.com/53121061/119427543-3222d200-bcd9-11eb-96e8-e44fc79e8e40.png)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
 
