@@ -1,13 +1,13 @@
 // Custom Theming for Angular Material
+@use '~@angular/material' as mat;
 // For more information: https://material.angular.io/guide/theming
-@import "~@angular/material/theming/";
 
-@include mat-core();
+@include mat.core();
 
-$app-primary: mat-palette($mat-amber);
-$app-accent: mat-palette($mat-blue-grey);
+$app-primary: mat.define-palette(mat.$amber-palette);
+$app-accent: mat.define-palette(mat.$blue-grey-palette);
 
-$app-dark-theme: mat-dark-theme(
+$app-dark-theme: mat.define-dark-theme(
   (
     color: (
       primary: $app-primary,
@@ -16,7 +16,7 @@ $app-dark-theme: mat-dark-theme(
   )
 );
 
-$app-light-theme: mat-light-theme(
+$app-light-theme: mat.define-light-theme(
   (
     color: (
       primary: $app-primary,
@@ -25,9 +25,9 @@ $app-light-theme: mat-light-theme(
   )
 );
 
-@include angular-material-theme($app-dark-theme);
+@include mat.all-component-themes($app-dark-theme);
 
 // used to switch from dark to light theme
 .light-theme {
-  @include angular-material-color($app-light-theme);
+  @include mat.all-component-colors($app-light-theme);
 }
